@@ -408,7 +408,7 @@ public class MainActivityTest {
     public void shouldAvatarSendIntent() {
         onView(withId(R.id.imgAvatar)).perform(click());
         // Check sending intent
-        intended(allOf(hasComponent(AvatarActivity.class.getName()), hasExtra("EXTRA_AVATAR",
+        intended(allOf(hasComponent(AvatarActivity.class.getName()), hasExtra("EXTRA_AVATAR_FROM_MAIN",
                 Database.getInstance().queryAvatar(1))));
         // Perform click on Avatar activity to send result and finish.
         onView(withId(R.id.imgAvatar2)).perform(click());

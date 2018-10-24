@@ -1,5 +1,6 @@
 package es.iessaladillo.pedrojoya.pr04.ui.main;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,10 +17,12 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import es.iessaladillo.pedrojoya.pr04.R;
 import es.iessaladillo.pedrojoya.pr04.data.local.model.Avatar;
+import es.iessaladillo.pedrojoya.pr04.ui.avatar.AvatarActivity;
 
 import static es.iessaladillo.pedrojoya.pr04.data.local.Database.getInstance;
 import static es.iessaladillo.pedrojoya.pr04.utils.IntentsUtils.existAppToOpen;
@@ -33,6 +36,8 @@ import static es.iessaladillo.pedrojoya.pr04.utils.ValidationUtils.isValidUrl;
 
 @SuppressWarnings("WeakerAccess")
 public class MainActivity extends AppCompatActivity {
+
+    public final int RC_IMG_AVATAR=1;
 
     private TextView lblName;
     private EditText txtName;
@@ -92,10 +97,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         imgAvatar.setOnClickListener(v -> {
-            avatar=getInstance().getRandomAvatar();
-            imgAvatar.setImageResource(avatar.getImageResId());
-            imgAvatar.setTag(avatar.getImageResId());
-            lblAvatar.setText(avatar.getName());
+            AvatarActivity.startForResult(MainActivity.this, RC_IMG_AVATAR, avatar);
         });
         lblAvatar.setOnClickListener(v -> {
             avatar=getInstance().getRandomAvatar();
@@ -202,6 +204,20 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Recepcion datos
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(resultCode==RESULT_OK && requestCode==RC_IMG_AVATAR){
+            if(data!=null && data.hasExtra(AvatarActivity.EXTRA_AVATAR_TO_MAIN)){
+                avatar = data.getParcelableExtra(AvatarActivity.EXTRA_AVATAR_TO_MAIN);
+                imgAvatar.setImageResource(avatar.getImageResId());
+                lblAvatar.setText(avatar.getName());
+            }
+        }
+    }
+
     //Function for Validate
     private boolean checkName() {
         if(TextUtils.isEmpty(txtName.getText())){
@@ -296,6 +312,8 @@ public class MainActivity extends AppCompatActivity {
         imgAvatar.setImageResource(getInstance().getDefaultAvatar().getImageResId());
         imgAvatar.setTag(getInstance().getDefaultAvatar().getImageResId());
         lblAvatar.setText(getInstance().getDefaultAvatar().getName());
+        //Initial value avatar
+        avatar=getInstance().getDefaultAvatar();
 
     }
 

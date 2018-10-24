@@ -34,7 +34,7 @@ public class AvatarActivityTest {
     @Before
     public void setup() {
         testRule.launchActivity(
-                new Intent().putExtra("EXTRA_AVATAR", Database.getInstance().getDefaultAvatar()));
+                new Intent().putExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().getDefaultAvatar()));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(1)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(1)));
     }
 
     @Test
@@ -58,7 +58,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(2)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(2)));
     }
 
     @Test
@@ -67,7 +67,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(3)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(3)));
     }
 
     @Test
@@ -76,7 +76,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(4)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(4)));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(5)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(5)));
     }
 
     @Test
@@ -94,7 +94,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(6)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(6)));
     }
 
     @Test
@@ -103,7 +103,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(1)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(1)));
     }
 
     @Test
@@ -112,7 +112,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(2)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(2)));
     }
 
     @Test
@@ -121,7 +121,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(3)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(3)));
     }
 
     @Test
@@ -130,7 +130,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(4)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(4)));
     }
 
     @Test
@@ -139,7 +139,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(5)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(5)));
     }
 
     @Test
@@ -148,7 +148,7 @@ public class AvatarActivityTest {
         int resultCode = testRule.getActivityResult().getResultCode();
         Intent intent = testRule.getActivityResult().getResultData();
         assertThat(resultCode, is(RESULT_OK));
-        assertThat(intent, hasExtra("EXTRA_AVATAR", Database.getInstance().queryAvatar(6)));
+        assertThat(intent, hasExtra("EXTRA_AVATAR_FROM_MAIN", Database.getInstance().queryAvatar(6)));
     }
 
 }
