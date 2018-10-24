@@ -21,9 +21,8 @@ public class IntentsUtils {
     }
 
     public static Intent intentEmail(String email){
-        Intent intent=new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+        Intent intent=new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"+email));
         return intent;
     }
 

@@ -100,10 +100,7 @@ public class MainActivity extends AppCompatActivity {
             AvatarActivity.startForResult(MainActivity.this, RC_IMG_AVATAR, avatar);
         });
         lblAvatar.setOnClickListener(v -> {
-            avatar=getInstance().getRandomAvatar();
-            imgAvatar.setImageResource(avatar.getImageResId());
-            imgAvatar.setTag(avatar.getImageResId());
-            lblAvatar.setText(avatar.getName());
+            AvatarActivity.startForResult(MainActivity.this, RC_IMG_AVATAR, avatar);
         });
         //OnEditorActionListener IME
         txtWeb.setOnEditorActionListener((v, actionId, event) -> {
@@ -232,55 +229,55 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean checkEmail() {
         if(!isValidEmail(String.valueOf(txtEmail.getText()))){
-            txtEmail.setError(getString(R.string.main_invalid_data));
-            lblEmail.setEnabled(false);
-            imgEmail.setEnabled(false);
+            setDisableIcon(txtEmail, lblEmail, imgEmail);
             return false;
         }else{
-            lblEmail.setEnabled(true);
-            imgEmail.setEnabled(true);
+            setEnableIcon(lblEmail, imgEmail);
             return true;
         }
     }
 
     private boolean checkPhoneNumber() {
         if(!isValidPhone(String.valueOf(txtPhoneNumber.getText()))){
-            txtPhoneNumber.setError(getString(R.string.main_invalid_data));
-            lblPhoneNumber.setEnabled(false);
-            imgPhoneNumber.setEnabled(false);
+            setDisableIcon(txtPhoneNumber, lblPhoneNumber, imgPhoneNumber);
             return false;
         }else{
-            lblPhoneNumber.setEnabled(true);
-            imgPhoneNumber.setEnabled(true);
+            setEnableIcon(lblPhoneNumber, imgPhoneNumber);
             return true;
         }
     }
 
     private boolean checkAddress() {
         if(TextUtils.isEmpty(txtAddress.getText())){
-            txtAddress.setError(getString(R.string.main_invalid_data));
-            lblAddress.setEnabled(false);
-            imgAddress.setEnabled(false);
+            setDisableIcon(txtAddress, lblAddress, imgAddress);
             return false;
         }else{
-            lblAddress.setEnabled(true);
-            imgAddress.setEnabled(true);
+            setEnableIcon(lblAddress, imgAddress);
             return true;
         }
     }
 
     private boolean checkWeb() {
         if(!isValidUrl(String.valueOf(txtWeb.getText()))){
-            txtWeb.setError(getString(R.string.main_invalid_data));
-            lblWeb.setEnabled(false);
-            imgWeb.setEnabled(false);
+            setDisableIcon(txtWeb, lblWeb, imgWeb);
             return false;
         }else{
-            lblWeb.setEnabled(true);
-            imgWeb.setEnabled(true);
+            setEnableIcon(lblWeb, imgWeb);
             return true;
         }
     }
+
+    private void setEnableIcon(TextView lbl, ImageView img) {
+        lbl.setEnabled(true);
+        img.setEnabled(true);
+    }
+
+    private void setDisableIcon(EditText txt, TextView lbl, ImageView img) {
+        txt.setError(getString(R.string.main_invalid_data));
+        lbl.setEnabled(false);
+        img.setEnabled(false);
+    }
+
 
     //Function Label Bold
     private void setLblBold(TextView lbl, boolean hasFocus){

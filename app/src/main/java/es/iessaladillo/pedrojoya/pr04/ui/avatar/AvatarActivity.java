@@ -50,53 +50,29 @@ public class AvatarActivity extends AppCompatActivity {
         setupView();
         getIntentData();
         
-        imgAvatar1.setOnClickListener(v -> {
-            intentAvatarToMain(0);
-        });
+        imgAvatar1.setOnClickListener(v -> intentAvatarToMain(0));
 
-        imgAvatar2.setOnClickListener(v -> {
-            intentAvatarToMain(1);
-        });
+        imgAvatar2.setOnClickListener(v -> intentAvatarToMain(1));
 
-        imgAvatar3.setOnClickListener(v -> {
-            intentAvatarToMain(2);
-        });
+        imgAvatar3.setOnClickListener(v -> intentAvatarToMain(2));
 
-        imgAvatar4.setOnClickListener(v -> {
-            intentAvatarToMain(3);
-        });
+        imgAvatar4.setOnClickListener(v -> intentAvatarToMain(3));
 
-        imgAvatar5.setOnClickListener(v -> {
-            intentAvatarToMain(4);
-        });
+        imgAvatar5.setOnClickListener(v -> intentAvatarToMain(4));
 
-        imgAvatar6.setOnClickListener(v -> {
-            intentAvatarToMain(5);
-        });
+        imgAvatar6.setOnClickListener(v -> intentAvatarToMain(5));
 
-        lblAvatar1.setOnClickListener(v -> {
-            intentAvatarToMain(0);
-        });
+        lblAvatar1.setOnClickListener(v -> intentAvatarToMain(0));
 
-        lblAvatar2.setOnClickListener(v -> {
-            intentAvatarToMain(1);
-        });
+        lblAvatar2.setOnClickListener(v -> intentAvatarToMain(1));
 
-        lblAvatar3.setOnClickListener(v -> {
-            intentAvatarToMain(2);
-        });
+        lblAvatar3.setOnClickListener(v -> intentAvatarToMain(2));
 
-        lblAvatar4.setOnClickListener(v -> {
-            intentAvatarToMain(3);
-        });
+        lblAvatar4.setOnClickListener(v -> intentAvatarToMain(3));
 
-        lblAvatar5.setOnClickListener(v -> {
-            intentAvatarToMain(4);
-        });
+        lblAvatar5.setOnClickListener(v -> intentAvatarToMain(4));
 
-        lblAvatar6.setOnClickListener(v -> {
-            intentAvatarToMain(5);
-        });
+        lblAvatar6.setOnClickListener(v -> intentAvatarToMain(5));
 
     }
 
