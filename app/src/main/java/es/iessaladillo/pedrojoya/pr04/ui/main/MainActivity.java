@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -72,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         txtWeb.setOnFocusChangeListener((v, hasFocus) -> setLblBold(lblWeb, hasFocus));
         //OnClickListener
         imgEmail.setOnClickListener(v -> {
+            // DEBERÍAS COMPROBAR SI HAY DATOS (LO MISMO EN EL RESTO DE img)
             //Check out if exist app
             if (existAppToOpen(this, intentEmail(String.valueOf(txtEmail.getText())))) {
                 startActivity(intentEmail(String.valueOf(txtEmail.getText())));
@@ -209,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
         if(resultCode==RESULT_OK && requestCode==RC_IMG_AVATAR){
             if(data!=null && data.hasExtra(AvatarActivity.EXTRA_AVATAR_TO_MAIN)){
                 avatar = data.getParcelableExtra(AvatarActivity.EXTRA_AVATAR_TO_MAIN);
+                // SEGÚN EL TEST, DEBES ESTABLECER TAMBIÉN EL TAG AL resId DE LA IMAGEN DEL AVATAR.
                 imgAvatar.setImageResource(avatar.getImageResId());
                 lblAvatar.setText(avatar.getName());
             }
