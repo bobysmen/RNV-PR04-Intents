@@ -3,7 +3,6 @@ package es.iessaladillo.pedrojoya.pr04.ui.avatar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +17,7 @@ import es.iessaladillo.pedrojoya.pr04.utils.ResourcesUtils;
 
 public class AvatarActivity extends AppCompatActivity {
 
+    // SEGÚN LOS TESTS EL EXTRA DEBE TENER EL VALOR EXTRA_AVATAR
     public static final String EXTRA_AVATAR_FROM_MAIN ="EXTRA_AVATAR_FROM_MAIN";
     public static final String EXTRA_AVATAR_TO_MAIN="EXTRA_AVATAR_TO_MAIN";
     public final long CAT1_ID=1;
